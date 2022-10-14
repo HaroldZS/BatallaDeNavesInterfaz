@@ -1,0 +1,15 @@
+#BlueJ class context
+comment0.target=Casilla
+comment1.params=iden\ dim
+comment1.target=Casilla(char,\ int)
+comment2.params=
+comment2.target=char\ getIden()
+comment3.params=
+comment3.target=int\ getDim()
+comment4.params=
+comment4.target=boolean\ getAtck()
+comment5.params=nIden
+comment5.target=void\ setIden(char)
+comment6.params=
+comment6.target=void\ setAtck()
+numComments=7

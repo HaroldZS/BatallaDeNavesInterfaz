@@ -1,0 +1,17 @@
+#BlueJ class context
+comment0.target=Principal
+comment1.params=
+comment1.target=void\ jugar()
+comment2.params=sc
+comment2.target=void\ pedirXY(java.util.Scanner)
+comment3.params=t
+comment3.target=Casilla[][]\ genRadar(Casilla[][])
+comment4.params=a
+comment4.target=int[][]\ resumen(Casilla[][])
+comment5.params=n
+comment5.target=void\ imprimir(int[][])
+comment6.params=r\ x\ ay
+comment6.target=int\ getBarcoDim(int[][],\ int,\ char)
+comment7.params=bar\ tam\ jugX\ jugY
+comment7.target=void\ existeHundido(int[][],\ int,\ java.lang.String,\ java.lang.String)
+numComments=8

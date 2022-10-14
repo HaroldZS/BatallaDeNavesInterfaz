@@ -1,0 +1,15 @@
+#BlueJ class context
+comment0.target=Estrategia
+comment1.params=
+comment1.target=Estrategia()
+comment2.params=
+comment2.target=Tablero\ iniciar()
+comment3.params=sc\ bs\ nom\ dmn
+comment3.target=Casilla[][]\ colocarNave(java.util.Scanner,\ Casilla[][],\ java.lang.String,\ int)
+comment4.params=bs\ nom\ d\ x\ y
+comment4.target=Casilla[][]\ posHorizontal(Casilla[][],\ java.lang.String,\ int,\ int,\ int)
+comment5.params=bs\ nom\ d\ x\ y
+comment5.target=Casilla[][]\ posVertical(Casilla[][],\ java.lang.String,\ int,\ int,\ int)
+comment6.params=
+comment6.target=Tablero\ getT()
+numComments=7
