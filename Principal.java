@@ -162,7 +162,7 @@ public class Principal
         int valY = 0;
         while(!valChr){
             System.out.println("Indique una letra entre {A-J}");
-            cory = sc.next().charAt(0);
+            cory = Character.toUpperCase(sc.next().charAt(0));
             valY = new String(ej).indexOf(cory);
             
             if(valY != -1){

@@ -55,7 +55,7 @@ public class Estrategia
         }
         
         while(!pxv){
-            System.out.println("Indique un número entre entre {1-10}");
+            System.out.println("Indique un número entre {1-10}");
             px = sc.nextInt();
             if(px >= 1 && px <=10){
                 pxv = true;
@@ -68,7 +68,7 @@ public class Estrategia
         
         while(!pyv){
             System.out.println("Indique una letra entre {A-J}");
-            py = sc.next().charAt(0);
+            py = Character.toUpperCase(sc.next().charAt(0));
             py = new String(eje).indexOf(py);
             
             if(py != -1){
