@@ -3,6 +3,9 @@ import javax.swing.*;
 import java.applet.AudioClip;
 public class Ventana extends JFrame
 {
+    private JLabel[][] m1;
+    private JLabel[][] m2;
+    private JPanel panel;
     public Ventana(String jugador, int x, int y){
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setTitle("Batalla Naval - "+jugador);
@@ -13,7 +16,7 @@ public class Ventana extends JFrame
         iniciarComponentes();
     }
     private void iniciarComponentes(){
-        JPanel panel = new JPanel();
+        panel = new JPanel();
         panel.setLayout(null);
         panel.setBackground(Color.DARK_GRAY);
         this.getContentPane().add(panel);
@@ -54,32 +57,63 @@ public class Ventana extends JFrame
         puerto.setBounds(565,126,180,125);
         panel.add(puerto);
         
-        JLabel[][] m1 = crearMatriz();
-        imprimirMat(m1,panel,50,150);
+        this.m1 = crearMatriz();
+        imprimirMat(m1,50,150);
         
-        JLabel[][] m2 = crearMatriz();
-        imprimirMat(m2,panel,320,150);
+        this.m2 = crearMatriz();
+        imprimirMat(m2,320,150);
     }
     public JLabel[][] crearMatriz(){
         JLabel[][] mt = new JLabel[10][10];
         for(int i=0;i<mt.length;i++){
             for(int j=0;j<mt[0].length;j++){
                 mt[i][j] = new JLabel(new ImageIcon("vacio.png"));
+                //mt[i][j].setIcon(new ImageIcon("nave.png"));
             }
         }
         return mt;
     }
-    public void imprimirMat(JLabel[][] m, JPanel p, int x, int y){
+    public void imprimirMat(JLabel[][] m, int x, int y){
         int xr = x;
         int yr = y;
         for(int i=0;i<m.length;i++){
             for(int j=0;j<m[0].length;j++){
                 m[i][j].setBounds(xr,yr,20,20);
-                p.add(m[i][j]);
+                panel.add(m[i][j]);
                 xr=xr+20;
             }
             xr=x;
             yr=yr+20;
+        }
+    }
+    public void setPropio(Casilla[][] tn){
+        for(int i=0;i<tn.length;i++){
+            for(int j=0;j<tn[0].length;j++){
+                if(tn[i][j].getIden()=='B'){
+                    m1[i][j].setIcon(new ImageIcon("nave.png"));
+                }
+                if(tn[i][j].getIden()=='A'){
+                    m1[i][j].setIcon(new ImageIcon("vacio.png"));
+                }
+                if(tn[i][j].getIden()=='X'){
+                    m1[i][j].setIcon(new ImageIcon("hundido.png"));
+                }
+            }
+        }
+    }
+    public void setContrario(Casilla[][] tn){
+        for(int i=0;i<tn.length;i++){
+            for(int j=0;j<tn[0].length;j++){
+                if(tn[i][j].getIden()=='A'){
+                    m2[i][j].setIcon(new ImageIcon("vacio.png"));
+                }
+                if(tn[i][j].getIden()=='X'){
+                    m2[i][j].setIcon(new ImageIcon("hundido.png"));
+                }
+                if(tn[i][j].getIden()=='N'){
+                    m2[i][j].setIcon(new ImageIcon("alAgua.png"));
+                }
+            }
         }
     }
 }

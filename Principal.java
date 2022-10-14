@@ -6,9 +6,15 @@ public class Principal
     private boolean ganar = false;
     
     public void jugar(){
+        Ventana v1 = new Ventana("Jugador 1",120,150);
+        Ventana v2 = new Ventana("Jugador 2",1020,150);
+        v1.setVisible(true);
+        v2.setVisible(true);
+        
         System.out.println("===============Interfaz J1================");
         System.out.println("Estrategia J1 - Posicionar Naves");
         Casilla[][] mat = new Estrategia().getT().getTab();
+        
         System.out.println("===============Interfaz J2================");
         System.out.println("Estrategia J2 - Posicionar Naves");
         Casilla[][] oMat = new Estrategia().getT().getTab();
@@ -56,20 +62,25 @@ public class Principal
         System.out.println("Tablero propio Jugador 1");
         Tablero t1 = new Tablero(mat);
         t1.mostrar();
+        v1.setPropio(t1.getTab());
         
         //Crear tablero J2
         System.out.println("Tablero propio Jugador 2");
         Tablero t2 = new Tablero(oMat);
         t2.mostrar();
+        v2.setPropio(t2.getTab());
         
         System.out.println("Empieza el Juego!");
         while(!ganar){
             System.out.println("===============Interfaz J1================");
             System.out.println("J1 Propio");
             t1.mostrar();
+            v1.setPropio(t1.getTab());
+            
             System.out.println("J1 Radar");
             radar1 = new Tablero(genRadar(t2.getTab()));
             radar1.mostrar();
+            v1.setContrario(radar1.getTab());
             
             if(corx != 100 && cory != 'Z'){
                 nav1 = resumen(t1.getTab());
@@ -90,16 +101,23 @@ public class Principal
             System.out.println("===============Interfaz J1================");
             System.out.println("J1 Propio");
             t1.mostrar();
+            v1.setPropio(t1.getTab());
+            
+            
             System.out.println("J1 Radar");
             radar1 = new Tablero(genRadar(t2.getTab()));
             radar1.mostrar();
+            v1.setContrario(radar1.getTab());
             
             System.out.println("===============Interfaz J2================");
             System.out.println("J2 Propio");
             t2.mostrar();
+            v2.setPropio(t2.getTab());
+            
             System.out.println("J2 Radar");
             radar2 = new Tablero(genRadar(t1.getTab()));
             radar2.mostrar();
+            v2.setContrario(radar2.getTab());
             
             nav2 = resumen(t2.getTab());
             navDim = getBarcoDim(nav2,corx,cory);
@@ -118,9 +136,12 @@ public class Principal
             System.out.println("===============Interfaz J2================");
             System.out.println("J2 Propio");
             t2.mostrar();
+            v2.setPropio(t2.getTab());
+            
             System.out.println("J2 Radar");
             radar2 = new Tablero(genRadar(t1.getTab()));
             radar2.mostrar();
+            v2.setContrario(radar2.getTab());
         }
     }
     private void pedirXY(Scanner sc){
@@ -210,7 +231,7 @@ public class Principal
         }
         if(tam == 6){
             if(cont == 3){
-                System.out.println(jugX+" ha undido el crucero de "+jugY);
+                System.out.println(jugX+" ha hundido el crucero de "+jugY);
             }
         }else{
             if(cont == tam){
