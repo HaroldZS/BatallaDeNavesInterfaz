@@ -5,7 +5,9 @@ public class Estrategia
     private int py;
     private int pos;
     private Tablero estPos;
-    public Estrategia(){
+    private Ventana ven;
+    public Estrategia(Ventana v){
+        this.ven = v;
         this.estPos = iniciar();
     }
     public Tablero iniciar()
@@ -26,16 +28,23 @@ public class Estrategia
         
         Tablero tabN = new Tablero(colocarNave(scan, base,"destructor",2));
         tabN.mostrar();
-        
+        ven.setPropio(tabN.getTab());
         
         tabN = new Tablero(colocarNave(scan, tabN.getTab(),"submarion",3));
         tabN.mostrar();
+        ven.setPropio(tabN.getTab());
+        
         tabN = new Tablero(colocarNave(scan, tabN.getTab(),"crucero",6));
         tabN.mostrar();
+        ven.setPropio(tabN.getTab());
+        
         tabN = new Tablero(colocarNave(scan, tabN.getTab(),"acorazado",4));
         tabN.mostrar();
+        ven.setPropio(tabN.getTab());
+        
         tabN = new Tablero(colocarNave(scan, tabN.getTab(),"portaaviones",5));
         tabN.mostrar();
+        ven.setPropio(tabN.getTab());
         
         return tabN;
     }

@@ -13,11 +13,11 @@ public class Principal
         
         System.out.println("===============Interfaz J1================");
         System.out.println("Estrategia J1 - Posicionar Naves");
-        Casilla[][] mat = new Estrategia().getT().getTab();
+        Casilla[][] mat = new Estrategia(v1).getT().getTab();
         
         System.out.println("===============Interfaz J2================");
         System.out.println("Estrategia J2 - Posicionar Naves");
-        Casilla[][] oMat = new Estrategia().getT().getTab();
+        Casilla[][] oMat = new Estrategia(v2).getT().getTab();
         /*
         Casilla[][] mat = {
             {new Casilla('A',0),new Casilla('A',0),new Casilla('A',0),new Casilla('A',0),new Casilla('A',0),new Casilla('A',0),new Casilla('A',0),new Casilla('A',0),new Casilla('A',0),new Casilla('A',0)},

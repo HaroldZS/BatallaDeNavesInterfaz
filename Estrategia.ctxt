@@ -1,7 +1,7 @@
 #BlueJ class context
 comment0.target=Estrategia
-comment1.params=
-comment1.target=Estrategia()
+comment1.params=v
+comment1.target=Estrategia(Ventana)
 comment2.params=
 comment2.target=Tablero\ iniciar()
 comment3.params=sc\ bs\ nom\ dmn
