@@ -26,6 +26,8 @@ public class Estrategia
         
         Tablero tabN = new Tablero(colocarNave(scan, base,"destructor",2));
         tabN.mostrar();
+        
+        
         tabN = new Tablero(colocarNave(scan, tabN.getTab(),"submarion",3));
         tabN.mostrar();
         tabN = new Tablero(colocarNave(scan, tabN.getTab(),"crucero",6));
@@ -38,17 +40,44 @@ public class Estrategia
         return tabN;
     }
     public Casilla[][] colocarNave(Scanner sc, Casilla[][] bs, String nom, int dmn){
-        System.out.println("Selecciona la posición del barco: 0 - Horizontal : 1 - Vertical");
-        pos = sc.nextInt();
+        boolean phv = false;
+        boolean pxv = false;
+        boolean pyv = false;
+    
+        while (!phv){
+            System.out.println("Selecciona la posición del barco: 0 - Horizontal : 1 - Vertical");
+            pos = sc.nextInt();
+            if(pos == 0 || pos == 1){
+                phv = true;
+            }else{
+                System.out.println("Número incorrecto - Fuera de rango");
+            }
+        }
         
-        System.out.println("Indique un número entre entre {1-10}");
-        px = sc.nextInt();
-        
-        System.out.println("Indique una letra entre {A-J}");
-        py = sc.next().charAt(0);
+        while(!pxv){
+            System.out.println("Indique un número entre entre {1-10}");
+            px = sc.nextInt();
+            if(px >= 1 && px <=10){
+                pxv = true;
+            }else{
+                System.out.println("Número incorrecto - Fuera de rango");
+            }
+        }
         
         char[] eje = {'A','B','C','D','E','F','G','H','I','J'};
-        py = new String(eje).indexOf(py);
+        
+        while(!pyv){
+            System.out.println("Indique una letra entre {A-J}");
+            py = sc.next().charAt(0);
+            py = new String(eje).indexOf(py);
+            
+            if(py != -1){
+                pyv = true;
+            }else{
+                System.out.println("Letra incorrecta - Fuera de rango");
+            }
+        }
+        
         px = px-1;
         
         if(pos == 0){

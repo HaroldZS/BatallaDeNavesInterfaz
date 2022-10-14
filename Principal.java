@@ -145,10 +145,32 @@ public class Principal
         }
     }
     private void pedirXY(Scanner sc){
-        System.out.println("Indique un número entre entre {1-10}");
-        corx = sc.nextInt();
-        System.out.println("Indique una letra entre {A-J}");
-        cory = sc.next().charAt(0);
+        boolean valNum = false;
+        boolean valChr = false;
+        
+        while(!valNum){
+            System.out.println("Indique un número entre entre {1-10}");
+            corx = sc.nextInt();
+            if(corx >= 1 && corx <=10){
+                valNum = true;
+            }else{
+                System.out.println("Número incorrecto - Fuera de rango");
+            }
+        }
+        
+        char[] ej = {'A','B','C','D','E','F','G','H','I','J'};
+        int valY = 0;
+        while(!valChr){
+            System.out.println("Indique una letra entre {A-J}");
+            cory = sc.next().charAt(0);
+            valY = new String(ej).indexOf(cory);
+            
+            if(valY != -1){
+                valChr = true;
+            }else{
+                System.out.println("Letra incorrecta - Fuera de rango");
+            }
+        }
     }
     private Casilla[][] genRadar(Casilla[][] t){
         Casilla[][] c = {
