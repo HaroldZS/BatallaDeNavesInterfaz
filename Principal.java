@@ -51,6 +51,7 @@ public class Principal
         int[][] nav1 = null;
         int[][] nav2 = null;
         int navDim= 0;
+        boolean conVal = false;
         
         corx= 100;
         cory= 'Z';
@@ -93,10 +94,14 @@ public class Principal
                 break;
             }
             
-            pedirXY(sc);
+            
+            while(!conVal){
+                pedirXY(sc);
                             
-            //J1 ataca a J2
-            t2.atacadoEn(corx,cory);
+                //J1 ataca a J2
+                conVal = t2.atacadoEn(corx,cory);
+            }
+            conVal= false;
             
             System.out.println("===============Interfaz J1================");
             System.out.println("J1 Propio");
@@ -128,10 +133,13 @@ public class Principal
                 break;
             }
             
-            pedirXY(sc);
+            while(!conVal){
+                pedirXY(sc);
         
-            //J2 ataca a J1
-            t1.atacadoEn(corx,cory);
+                //J2 ataca a J1
+                conVal = t1.atacadoEn(corx,cory);
+            }
+            conVal=false;
             
             System.out.println("===============Interfaz J2================");
             System.out.println("J2 Propio");

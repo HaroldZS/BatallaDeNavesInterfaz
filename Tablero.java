@@ -39,11 +39,11 @@ public class Tablero implements Cloneable
         }
         return res;
     }
-    public void atacadoEn(int x,char yc){
+    public boolean atacadoEn(int x,char yc){
         int y = new String(letr).indexOf(yc);
         for(int i=0; i<fila; i++){
             for(int j=0; j<colu; j++){
-                if(y==i && (x-1)==j){
+                if(y==i && (x-1)==j && tab[i][j].getAtck() == false){
                     if(tab[i][j].getIden()=='A'){
                         tab[i][j].setAtck(); //Marcamos la casilla como atacada
                     }
@@ -51,9 +51,12 @@ public class Tablero implements Cloneable
                         tab[i][j].setIden('X'); //Mostramos tiro acertado
                         tab[i][j].setAtck();
                     }
+                    return true;
                 }
             }
         }
+        System.out.println("Coordenadas de atacque repetidas");
+        return false;
     }
     public void radar(){
         for(int i=0; i<fila; i++){
